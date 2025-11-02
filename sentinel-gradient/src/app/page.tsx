@@ -42,6 +42,9 @@ export default function Home() {
               <Link href="#capabilities" className="hover:text-off-white transition-colors">
                 Capabilities
               </Link>
+              <Link href="/about" className="hover:text-off-white transition-colors">
+                About
+              </Link>
               <Link href="/contracts" className="hover:text-off-white transition-colors">
                 Contracts
               </Link>
@@ -130,7 +133,7 @@ export default function Home() {
         </section>
 
         <footer className="mt-24 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-gray-azure-muted sm:flex-row sm:items-center sm:justify-between">
-          <span>&copy; {new Date().getFullYear()} Sentinel Gradient LLC. All rights reserved.</span>
+          {/*<span>&copy; {new Date().getFullYear()} Sentinel Gradient LLC. All rights reserved.</span>*/}
           <div className="flex flex-wrap items-center gap-4">
             <Link href="mailto:info@sentinelgradient.com">info@sentinelgradient.com</Link>
             <span className="hidden h-1 w-1 rounded-full bg-white/50 sm:inline-flex" aria-hidden="true" />

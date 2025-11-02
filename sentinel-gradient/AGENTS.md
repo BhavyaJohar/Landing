@@ -53,7 +53,7 @@
   - **Right column:** abstract AI visualization or gradient graphic.
 - Include section titled **Our Approach** describing methodology and principles (3–4 bullet points).
 - Add **Team or Founder** section:
-  - Placeholder for 1–2 bios or headshots.  
+  - Placeholder for 2 bios and headshots.  
   - Use circular photos and Montserrat captions.
 - Include link to download a **Capability Statement (PDF)**.
 - All typography and spacing per `/design_guidelines.md`.
