@@ -58,47 +58,148 @@
 - Include link to download a **Capability Statement (PDF)**.
 - All typography and spacing per `/design_guidelines.md`.
 
----
-
 ## User Story 3 — Research / Capabilities Page
-**As a research collaborator or technical reviewer**, I want to see a detailed breakdown of Sentinel Gradient’s technical competencies,  
+
+**As a research collaborator or technical reviewer**, I want to see a detailed breakdown of Sentinel Gradient’s technical competencies,
 **so that** I can identify alignment with my project or program requirements.
 
 ### Acceptance Criteria
-- Page title: “Our Expertise.”  
-- Use 4–6 cards or tiles in a responsive grid layout.  
-- Each card must contain:
-  - Title (Playfair Display)
-  - Short technical description (Montserrat)
-  - Optional keyword tags (NLP, LLMs, AI Safety, etc.)
-- Example sections:
-  1. Machine Learning Research  
-  2. AI Safety & Interpretability  
-  3. Applied LLM Engineering  
-  4. Autonomous Systems  
-  5. Data-Centric AI  
-- Use alternating background sections: Off-White (#F8F9FA) and Dark Blue (#0B1624) for contrast.
-- Include a “Learn More / Contact Us” button at bottom linking to contact page.
-- All visual dividers should use brand gradient line.
+
+* **Page title:** “Our Expertise.”
+
+* **Layout:** 4–6 responsive cards or tiles in a structured grid.
+
+* **Each card must include:**
+
+  * Title (Playfair Display)
+  * Short technical description (Montserrat)
+  * Optional keyword tags (e.g., LLMs, Interpretability, Reliability)
+
+* **Example sections (tailored to Sentinel Gradient’s team expertise):**
+
+  1. **Applied Machine Learning Research** –
+     Evidence-driven modeling across classification, anomaly detection, and time-series analysis. Focus on building reproducible, high-assurance ML pipelines for defense and biomedical domains.
+     *Tags: ML, TensorFlow, PyTorch, Time Series, Model Evaluation*
+
+  2. **AI Safety & Interpretability** –
+     Frameworks for explainable AI and model accountability. Includes interpretability tooling, bias detection, and traceable model auditing for mission-critical applications.
+     *Tags: AI Safety, Interpretability, Explainability, Governance*
+
+  3. **Applied LLM Engineering** –
+     Development of domain-specific LLMs and language interfaces, drawing from PsychBERT and operational fine-tuning work. Includes LangChain pipelines and prompt optimization.
+     *Tags: LLMs, NLP, Transformers, Prompt Engineering*
+
+  4. **Autonomous & Data-Centric Systems** –
+     Integration of ML and autonomy research from NASA and applied partners. Designing systems that adapt to uncertainty and maintain performance in contested environments.
+     *Tags: Autonomy, Simulation, Anomaly Detection, Robotics*
+
+  5. **Systems Engineering & Deployment** –
+     Full-stack infrastructure connecting research prototypes to production-ready tools. Includes AWS, React, and Express-based architectures for operational dashboards.
+     *Tags: Full Stack, AWS, React, System Integration*
+
+  6. **Quantitative Modeling & Decision Analytics** –
+     Translating data into strategic insight. Building analytical pipelines and APIs that support investment, acquisition, and technical evaluation decisions.
+     *Tags: Quantitative Analysis, Data Science, APIs, Decision Support*
+
+* **Visual Design Requirements:**
+
+  * Alternating background sections:
+
+    * Off-White (`#F8F9FA`)
+    * Dark Blue (`#0B1624`)
+  * Gradient dividers using Sentinel Gradient’s brand line.
+
+* **Interaction:**
+
+  * “Learn More / Contact Us” button at the bottom linking to `/contact`.
+  * Responsive layout for desktop, tablet, and mobile.
 
 ---
 
 ## User Story 4 — Contracts / SBIR Page
-**As a government program manager or industry partner**, I want to see Sentinel Gradient’s contract readiness and technical domains,  
+
+**As a government program manager or industry partner**, I want to see Sentinel Gradient’s contract readiness and technical domains,
 **so that** I can evaluate eligibility for collaboration or SBIR participation.
 
+---
+
 ### Acceptance Criteria
-- Title: “Ready for Collaboration.”  
-- Section 1: **SBIR/STTR Focus**
-  - Short paragraph explaining readiness for government R&D projects.
-- Section 2: **Core Capabilities**
-  - List of NAICS/PSC codes (placeholders if pending).  
-  - List of prior research areas or projects (bulleted list).
-- Section 3: **Download Capability Statement (PDF)** button styled in Light Azure Blue.
-- Section 4: **Contact CTA**
-  - Inline form: Name, Email, Organization, Message.
-- Maintain minimalist layout with Montserrat text and Playfair headings.
-- Use Dark Azure Blue as header bar background.
+
+* **Page Title:** “Ready for Collaboration.”
+* **Visual Style:**
+
+  * Matches About/Capabilities pages: dark gradient background, subtle hero aurora, glass-style cards.
+  * Playfair Display for headings, Montserrat for body text.
+  * Light Azure (`#1F97C1`) used for accents, buttons, and gradient dividers.
+  * Layout stays minimalist—clear section spacing, no alternating backgrounds.
+
+---
+
+### Section 1 — SBIR/STTR Focus
+
+* Brief narrative emphasizing readiness for U.S. government R&D projects.
+* Copy Example:
+
+  > Sentinel Gradient LLC is a research-native artificial intelligence and machine learning firm positioned for federal R&D and SBIR/STTR collaboration. Our programs emphasize reproducible methodologies, model interpretability, and contracting fluency—bridging the gap between scientific innovation and operational capability.
+  >
+  > We specialize in autonomy assurance, generative modeling, and trustworthy AI evaluation, supporting partners across defense, public sector, and enterprise domains.
+
+---
+
+### Section 2 — Core Capabilities
+
+* Display as a **two-column card grid**:
+
+  1. **Contract Identifiers & NAICS Codes**
+
+     * *541511 – Custom Computer Programming Services*
+     * *541715 – Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)*
+     * *541512 – Computer Systems Design Services*
+  2. **Applied Research Areas**
+
+     * AI Safety, Interpretability, and Assurance
+     * Applied LLM Engineering and Domain-Specific NLP
+     * Autonomous System Evaluation and Simulation
+     * Quantitative Modeling and Decision Analytics
+     * Full-Stack Systems and MLOps Integration
+     * Data Governance and Responsible Deployment
+
+---
+
+### Section 3 — Download Capability Statement
+
+* Prominent **Light Azure button** (`btn-primary` or `btn-secondary` with Light Azure hue).
+* Button text: **“Download Capability Statement (PDF)”**
+* Action: Opens or downloads `/documents/sentinel-gradient-capability-statement.pdf` in a new tab.
+* Button sits inside a centered card or within a bordered CTA block (`bg-white/5`, rounded-3xl, shadow-2xl, backdrop-blur`).
+
+---
+
+### Section 4 — Contact CTA
+
+* Inline form integrated into the same page (no redirect):
+
+  * **Fields:** Name, Email, Organization, Message
+  * **Submit button:** “Send Inquiry” — styled with Light Azure accent
+* Form contained in a rounded `card-surface` panel below the download section.
+* On submit, displays success toast or confirmation message.
+
+---
+
+### Visual Layout Summary
+
+1. Hero header (“Ready for Collaboration.”) with gradient underline.
+2. SBIR/STTR focus paragraph.
+3. Dual-column core capabilities grid (NAICS + Research Areas).
+4. Centered PDF download CTA card.
+5. Inline contact form in final section.
+6. Footer identical to other pages.
+
+---
+
+### Example Tagline / Subtext (optional)
+
+> Contract-ready research built for verifiability, accountability, and mission relevance.
 
 ---
 

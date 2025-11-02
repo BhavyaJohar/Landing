@@ -64,6 +64,24 @@ a {
   background-color: var(--sg-light-azure);
 }
 
+.bg-off-white {
+  background-color: var(--sg-off-white);
+}
+
+.text-sg-night {
+  color: var(--sg-dark-blue);
+}
+
+.text-sg-neutral {
+  color: var(--sg-neutral);
+}
+
+.gradient-divider {
+  height: 4px;
+  background-image: var(--sg-gradient);
+  width: 100%;
+}
+
 .btn-primary {
   background-image: var(--sg-gradient);
   color: var(--sg-white);
@@ -113,6 +131,44 @@ a {
 .card-surface:hover {
   transform: translateY(-6px);
   border-color: rgba(31, 151, 193, 0.6);
+}
+
+.capability-card {
+  background-color: var(--sg-white);
+  border: 1px solid rgba(37, 103, 138, 0.16);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 28px 60px rgba(11, 22, 36, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.capability-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(31, 151, 193, 0.4);
+  box-shadow: 0 32px 80px rgba(11, 22, 36, 0.18);
+}
+
+.capability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.capability-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(31, 151, 193, 0.4);
+  background-color: rgba(31, 151, 193, 0.12);
+  color: var(--sg-dark-azure);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  text-transform: uppercase;
 }
 
 .hero-aurora {
