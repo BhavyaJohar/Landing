@@ -39,7 +39,7 @@ export default function Home() {
               />
             </Link>
             <nav className="hidden items-center gap-8 text-sm font-medium uppercase tracking-[0.18em] text-gray-azure-muted md:flex">
-              <Link href="#capabilities" className="hover:text-off-white transition-colors">
+              <Link href="/capabilities" className="hover:text-off-white transition-colors">
                 Capabilities
               </Link>
               <Link href="/about" className="hover:text-off-white transition-colors">
