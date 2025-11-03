@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  //const currentYear = new Date().getFullYear();
 
   return (
     <footer className="mt-24" role="contentinfo">
       <div className="gradient-divider mb-8" aria-hidden="true" />
       <div className="flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-gray-azure-muted sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-4">
-          <span>&copy; {currentYear} Sentinel Gradient LLC</span>
+          {/*<span>&copy; {currentYear} Sentinel Gradient LLC</span>*/}
           <span className="hidden h-1 w-1 rounded-full bg-white/50 sm:inline-flex" aria-hidden="true" />
           <span>Virginia, USA</span>
           <span className="hidden h-1 w-1 rounded-full bg-white/50 sm:inline-flex" aria-hidden="true" />
-          <Link href="mailto:contact@sentinelgradient.com">contact@sentinelgradient.com</Link>
+          <Link href="mailto:info@sentinelgradient.com">info@sentinelgradient.com</Link>
         </div>
         <div className="flex items-center gap-3">
           <span className="uppercase tracking-[0.2em] text-gray-azure-subtle">Connect</span>

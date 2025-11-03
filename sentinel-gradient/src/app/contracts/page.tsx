@@ -4,11 +4,15 @@ import { Button, ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input, Textarea } from "@/components/ui/input";
 
+
 const naicsAndPscCodes = [
-  { code: "NAICS 541715", description: "R&D in the Physical, Engineering, and Life Sciences (Aerospace, Defense)" },
-  { code: "NAICS 541713", description: "R&D in Nanotechnology and Advanced Materials (pending verification)" },
-  { code: "PSC AJ12", description: "R&D Services: General Science & Technology (Applied Research)" },
-  { code: "PSC D318", description: "IT & Telecom: Integrated Hardware/Software/Services" },
+  { code: "NAICS 541511", description: "Custom Computer Programming Services" },
+  {
+    code: "NAICS 541715",
+    description:
+      "R&D in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
+  },
+  { code: "NAICS 541512", description: "Computer Systems Design Services" },
 ];
 
 const researchHighlights = [
@@ -26,7 +30,7 @@ export default function ContractsPage() {
         id="main-content"
         className="relative mx-auto flex min-h-screen w-full max-w-[1200px] flex-col px-6 py-24 sm:px-10 lg:px-16"
       >
-        <Header variant="frosted" />
+        <Header />
 
         <section className="mt-16 flex flex-col gap-10 md:mt-20 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl space-y-6 reveal-up">
@@ -72,7 +76,7 @@ export default function ContractsPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             <Card className="text-gray-azure">
-              <h3 className="text-2xl text-off-white">NAICS & PSC Alignment</h3>
+              <h3 className="text-2xl text-off-white">NAICS Codes</h3>
               <p className="text-sm uppercase tracking-[0.28em] text-gray-azure-subtle">Codes pending final registration</p>
               <ul className="mt-4 space-y-3 text-base leading-relaxed">
                 {naicsAndPscCodes.map((item) => (

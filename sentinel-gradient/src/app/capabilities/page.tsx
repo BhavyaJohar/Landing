@@ -58,6 +58,7 @@ export default function CapabilitiesPage() {
       >
         <Header />
 
+        {/* Hero */}
         <section className="mt-16 flex flex-col gap-10 md:mt-20 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl space-y-6 reveal-up">
             <p className="text-sm uppercase tracking-[0.3em] text-gray-azure-subtle">
@@ -70,6 +71,7 @@ export default function CapabilitiesPage() {
               autonomous, safety-critical, and data-intensive systems.
             </p>
           </div>
+
           <Card className="reveal-up reveal-delay-1 md:max-w-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-gray-azure-subtle">
               Evaluation Focus
@@ -91,49 +93,48 @@ export default function CapabilitiesPage() {
           </Card>
         </section>
 
-        <div className="relative mt-24 -mx-6 sm:-mx-10 lg:-mx-16">
-          <div className="gradient-divider" aria-hidden="true" />
-          <section className="bg-off-white text-sg-night">
-            <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 py-24 sm:px-10 lg:px-16">
-              <div className="max-w-3xl space-y-4 reveal-up">
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-sg-neutral">
-                  Technical Competencies
-                </p>
-                <h2 className="text-3xl text-sg-night sm:text-4xl">Precision-led research, ready for operational scrutiny.</h2>
-                <p className="text-base leading-relaxed text-sg-neutral">
-                  Each capability tile distills the engineering focus areas we bring to federal, commercial, and laboratory
-                  partners. The work is grounded in measurable benchmarks, collaborative workflows, and documentation that supports
-                  acquisition and oversight audiences.
-                </p>
-              </div>
-              <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-                {capabilityAreas.map((area, index) => (
-                  <article
-                    key={area.title}
-                    className={`capability-card reveal-up ${
-                      index % 3 === 1 ? "reveal-delay-1" : index % 3 === 2 ? "reveal-delay-2" : ""
-                    }`}
-                  >
-                    <div className="space-y-3">
-                      <h3 className="text-2xl text-sg-night">{area.title}</h3>
-                      <p className="text-base leading-relaxed text-sg-neutral">{area.description}</p>
-                    </div>
-                    <div className="capability-tags" aria-label="Key technologies and themes">
+        {/* Technical Competencies (normal dark canvas, no alt background) */}
+        <section className="mt-24 space-y-8">
+          <div className="reveal-up">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gray-azure-subtle">
+              Technical Competencies
+            </p>
+            <h2 className="text-3xl sm:text-4xl">Precision-led research, ready for operational scrutiny.</h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-azure">
+              Each capability tile distills the engineering focus areas we bring to federal, commercial, and laboratory
+              partners—grounded in measurable benchmarks, collaborative workflows, and documentation that supports acquisition
+              and oversight audiences.
+            </p>
+          </div>
+
+          <ul className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {capabilityAreas.map((area, index) => (
+              <li key={area.title}>
+                <Card className={`reveal-up ${index % 3 === 1 ? "reveal-delay-1" : index % 3 === 2 ? "reveal-delay-2" : ""}`}>
+                  <div className="space-y-3">
+                    <h3 className="font-serif text-2xl text-off-white">{area.title}</h3>
+                    <p className="text-base leading-relaxed text-gray-azure">{area.description}</p>
+                  </div>
+                  {area.tags?.length ? (
+                    <div className="mt-5 flex flex-wrap gap-2" aria-label="Key technologies and themes">
                       {area.tags.map((tag) => (
-                        <span className="capability-tag" key={tag}>
+                        <span
+                          key={tag}
+                          className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-xs text-gray-azure"
+                        >
                           {tag}
                         </span>
                       ))}
                     </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-          <div className="gradient-divider" aria-hidden="true" />
-        </div>
+                  ) : null}
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-        <Card className="mt-24 space-y-6 rounded-3xl border border-white/15 bg-white/5 p-10 shadow-2xl backdrop-blur">
+        {/* Readiness Signals */}
+        <Card className="mt-24 space-y-6">
           <h2 className="text-3xl">Readiness Signals We Deliver</h2>
           <p className="max-w-3xl text-base leading-relaxed text-gray-azure">
             Partners count on Sentinel Gradient for analytic depth and governance clarity. We integrate telemetry,
