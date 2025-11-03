@@ -4,7 +4,6 @@ import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
 import { Card } from "@/components/ui/card";
 import { ButtonLink } from "@/components/ui/button";
-import { ContactForm } from "@/components/contact/contact-form";
 import { buildMetadata } from "@/lib/seo";
 
 export const revalidate = 86400;
@@ -60,22 +59,30 @@ export default function ContactPage() {
           </Card>
         </section>
 
-        <Card className="mt-24 rounded-3xl border border-white/12 bg-white/5 p-10 shadow-2xl backdrop-blur">
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-3xl">Submit an Inquiry</h2>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-azure">
-                Complete the form and include any mission constraints, security considerations, or contracting pathways you are
-                exploring. We will coordinate a working session tailored to your objectives.
-              </p>
-            </div>
-            <ContactForm />
+        <Card className="mt-24 space-y-6 rounded-3xl border border-white/12 bg-white/5 p-10 shadow-2xl backdrop-blur">
+          <div className="space-y-4">
+            <h2 className="text-3xl">Coordinate with Sentinel Gradient</h2>
+            <p className="max-w-3xl text-base leading-relaxed text-gray-azure">
+              Email{" "}
+              <a
+                href="mailto:info@sentinelgradient.com"
+                className="font-semibold text-off-white underline decoration-sg-light-azure"
+              >
+                info@sentinelgradient.com
+              </a>{" "}
+              with mission context, technology focus, and desired timelines. Our research leads respond within two business days
+              with recommended points of contact and next steps.
+            </p>
           </div>
-        </Card>
-
-        <div className="mt-20 space-y-6">
-          <h2 className="text-3xl">Additional Resources</h2>
-          <div className="flex flex-wrap gap-4 text-gray-azure">
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink
+              href="mailto:info@sentinelgradient.com?subject=Sentinel%20Gradient%20Collaboration%20Inquiry"
+              variant="primary"
+              eventName="contact_email_click"
+              eventParams={{ location: "contact_primary_cta" }}
+            >
+              Email Our Team
+            </ButtonLink>
             <ButtonLink
               href="/documents/sentinel-gradient-capability-statement.pdf"
               variant="secondary"
@@ -83,10 +90,16 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               download
               eventName="capability_pdf_download"
-              eventParams={{ source: "contact_page" }}
+              eventParams={{ source: "contact_primary_cta" }}
             >
-              Download Capability Statement
+              Capability Statement (PDF)
             </ButtonLink>
+          </div>
+        </Card>
+
+        <div className="mt-20 space-y-6">
+          <h2 className="text-3xl">Additional Resources</h2>
+          <div className="flex flex-wrap gap-4 text-gray-azure">
             <ButtonLink
               href="/capabilities"
               className="inline-flex"
@@ -94,6 +107,14 @@ export default function ContactPage() {
               eventParams={{ destination: "capabilities", location: "contact_resources" }}
             >
               Review Capabilities
+            </ButtonLink>
+            <ButtonLink
+              href="mailto:info@sentinelgradient.com"
+              variant="light"
+              eventName="contact_email_click"
+              eventParams={{ location: "contact_resources" }}
+            >
+              Email Sentinel Gradient
             </ButtonLink>
           </div>
         </div>
@@ -126,4 +147,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

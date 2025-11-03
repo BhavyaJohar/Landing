@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
-import { Button, ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input, Textarea } from "@/components/ui/input";
 import { buildMetadata } from "@/lib/seo";
 
 const naicsAndPscCodes = [
@@ -139,49 +138,42 @@ export default function ContractsPage() {
           </ButtonLink>
         </Card>
 
-        <Card className="mt-24 space-y-10 rounded-3xl border border-white/12 bg-white/5 p-10 shadow-2xl backdrop-blur">
+        <Card className="mt-24 space-y-6 rounded-3xl border border-white/12 bg-white/5 p-10 shadow-2xl backdrop-blur">
           <div className="space-y-4">
-            <h2 className="text-3xl">Contact CTA</h2>
+            <h2 className="text-3xl">Coordinate a Contracting Discussion</h2>
             <p className="max-w-3xl text-base leading-relaxed text-gray-azure">
-              Share your program objectives and contracting timelines. We will respond with alignment notes, teaming
-              recommendations, and readiness artifacts tailored to your requirements.
+              Email{" "}
+              <a
+                href="mailto:info@sentinelgradient.com"
+                className="font-semibold text-off-white underline decoration-sg-light-azure"
+              >
+                info@sentinelgradient.com
+              </a>{" "}
+              with program details, acquisition timelines, and teaming needs. We will return a readiness packet and recommended
+              next steps within two business days.
             </p>
           </div>
-          <form
-            className="space-y-6"
-            aria-label="Contact Sentinel Gradient for contracting collaboration"
-            role="form"
-            noValidate
-          >
-            <div className="form-grid">
-              <label className="flex flex-col gap-2 text-sm uppercase tracking-[0.2em] text-gray-azure-subtle">
-                Name
-                <Input type="text" name="name" required placeholder="Full name" aria-required="true" />
-              </label>
-              <label className="flex flex-col gap-2 text-sm uppercase tracking-[0.2em] text-gray-azure-subtle">
-                Email
-                <Input type="email" name="email" required placeholder="name@organization.mil" aria-required="true" />
-              </label>
-              <label className="flex flex-col gap-2 text-sm uppercase tracking-[0.2em] text-gray-azure-subtle">
-                Organization
-                <Input type="text" name="organization" required placeholder="Agency or company" aria-required="true" />
-              </label>
-            </div>
-            <label className="flex flex-col gap-2 text-sm uppercase tracking-[0.2em] text-gray-azure-subtle">
-              Message
-              <Textarea
-                name="message"
-                required
-                placeholder="Outline contract type, domain, timelines, or teaming needs."
-                aria-required="true"
-              />
-            </label>
-            <div>
-              <Button type="submit" eventName="contact_submit" eventParams={{ source: "contracts_form" }}>
-                Submit Collaboration Inquiry
-              </Button>
-            </div>
-          </form>
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink
+              href="mailto:info@sentinelgradient.com?subject=Contracts%20Inquiry"
+              variant="primary"
+              eventName="contact_email_click"
+              eventParams={{ location: "contracts_contact_cta" }}
+            >
+              Email Contracting Team
+            </ButtonLink>
+            <ButtonLink
+              href="/documents/sentinel-gradient-capability-statement.pdf"
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              eventName="capability_pdf_download"
+              eventParams={{ source: "contracts_contact_cta" }}
+            >
+              Capability Statement (PDF)
+            </ButtonLink>
+          </div>
         </Card>
 
         <Footer />
