@@ -35,6 +35,12 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${playfair.variable} antialiased bg-sg-night text-off-white`}
       >
+        <a
+          href="#main-content"
+          className="skip-to-content"
+        >
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

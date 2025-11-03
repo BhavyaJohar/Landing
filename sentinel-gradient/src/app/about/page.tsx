@@ -30,7 +30,10 @@ export default function AboutPage() {
   return (
     <div className="relative overflow-hidden">
       <div className="hero-aurora" aria-hidden="true" />
-      <main className="relative mx-auto flex min-h-screen w-full max-w-[1200px] flex-col px-6 py-24 sm:px-10 lg:px-16">
+      <main
+        id="main-content"
+        className="relative mx-auto flex min-h-screen w-full max-w-[1200px] flex-col px-6 py-24 sm:px-10 lg:px-16"
+      >
         <Header />
 
         <section className="mt-16 flex flex-col gap-8 md:mt-20 md:flex-row md:items-end md:justify-between">

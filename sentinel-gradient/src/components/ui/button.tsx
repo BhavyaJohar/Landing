@@ -37,6 +37,7 @@ export function Button({
       type={type}
       className={cn(variantClassMap[variant], className)}
       disabled={disabled || variant === "disabled"}
+      aria-disabled={disabled || variant === "disabled" ? "true" : undefined}
       {...props}
     >
       {children}
@@ -50,10 +51,15 @@ export function ButtonLink({
   className,
   ...props
 }: ButtonLinkProps) {
+  const isDisabled = variant === "disabled";
   return (
-    <Link className={cn(variantClassMap[variant], className)} {...props}>
+    <Link
+      aria-disabled={isDisabled ? "true" : undefined}
+      tabIndex={isDisabled ? -1 : undefined}
+      className={cn(variantClassMap[variant], className, isDisabled && "pointer-events-none")}
+      {...props}
+    >
       {children}
     </Link>
   );
 }
-

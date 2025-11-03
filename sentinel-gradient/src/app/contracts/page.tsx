@@ -22,7 +22,10 @@ export default function ContractsPage() {
   return (
     <div className="relative overflow-hidden">
       <div className="hero-aurora" aria-hidden="true" />
-      <main className="relative mx-auto flex min-h-screen w-full max-w-[1200px] flex-col px-6 py-24 sm:px-10 lg:px-16">
+      <main
+        id="main-content"
+        className="relative mx-auto flex min-h-screen w-full max-w-[1200px] flex-col px-6 py-24 sm:px-10 lg:px-16"
+      >
         <Header variant="frosted" />
 
         <section className="mt-16 flex flex-col gap-10 md:mt-20 md:flex-row md:items-center md:justify-between">
@@ -122,7 +125,12 @@ export default function ContractsPage() {
               recommendations, and readiness artifacts tailored to your requirements.
             </p>
           </div>
-          <form className="space-y-6" aria-label="Contact Sentinel Gradient for contracting collaboration">
+          <form
+            className="space-y-6"
+            aria-label="Contact Sentinel Gradient for contracting collaboration"
+            role="form"
+            noValidate
+          >
             <div className="form-grid">
               <label className="flex flex-col gap-2 text-sm uppercase tracking-[0.2em] text-gray-azure-subtle">
                 Name
@@ -157,4 +165,3 @@ export default function ContractsPage() {
     </div>
   );
 }
-

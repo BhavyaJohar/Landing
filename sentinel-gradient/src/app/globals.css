@@ -87,7 +87,8 @@ a {
 }
 
 .btn-primary {
-  background-image: var(--sg-gradient);
+  background-color: var(--sg-dark-blue);
+  background-image: linear-gradient(90deg, rgba(37, 103, 138, 0.96) 0%, rgba(31, 151, 193, 0.75) 100%);
   color: var(--sg-white);
   padding: 0.875rem 1.75rem;
   border-radius: 9999px;
@@ -101,7 +102,7 @@ a {
 }
 
 .btn-primary:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.05);
   transform: translateY(-2px);
 }
 
@@ -251,6 +252,25 @@ a {
   resize: vertical;
   min-height: 160px;
   line-height: 1.6;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: 0;
+  left: -999px;
+  z-index: 999;
+  background-color: var(--sg-dark-azure);
+  color: var(--sg-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: left 0.2s ease;
+}
+
+.skip-to-content:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  outline: 3px solid rgba(31, 151, 193, 0.8);
 }
 
 .sr-only {

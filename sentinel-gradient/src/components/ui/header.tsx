@@ -70,6 +70,7 @@ export function Header({ variant = "default" }: HeaderProps) {
         <nav
           className="hidden items-center gap-8 md:flex"
           aria-label="Primary navigation"
+          role="navigation"
         >
           {navLinks.map((item) => {
             const isActive =
@@ -94,7 +95,7 @@ export function Header({ variant = "default" }: HeaderProps) {
 
       {open ? (
         <div className="mt-4 rounded-3xl border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur md:hidden">
-          <nav className="flex flex-col gap-4 text-sm" aria-label="Mobile navigation">
+          <nav className="flex flex-col gap-4 text-sm" aria-label="Mobile navigation" role="navigation">
             {navLinks.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -122,4 +123,3 @@ export function Header({ variant = "default" }: HeaderProps) {
     </header>
   );
 }
-

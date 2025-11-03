@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-24">
+    <footer className="mt-24" role="contentinfo">
       <div className="gradient-divider mb-8" aria-hidden="true" />
       <div className="flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-gray-azure-muted sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-4">
@@ -35,4 +35,3 @@ export function Footer() {
     </footer>
   );
 }
-
