@@ -1,8 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { buildMetadata } from "@/lib/seo";
 
 const initiatives = [
   {
@@ -25,6 +28,18 @@ const initiatives = [
   },
 ];
 
+export const revalidate = 86400;
+
+export async function generateMetadata() {
+  return buildMetadata({
+    route: "/",
+    title: "AI Assurance & Interpretable Machine Learning Research Partner",
+    description:
+      "Sentinel Gradient LLC is a Virginia AI research firm delivering AI assurance, interpretable machine learning, and autonomy readiness for defense and public sector programs.",
+    imageSlug: "home",
+  });
+}
+
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
@@ -44,15 +59,41 @@ export default function Home() {
               Advancing Machine Intelligence Through Rigorous Research.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-gray-azure">
-              Sentinel Gradient LLC evaluates, builds, and hardens machine learning systems with
-              transparent methodologies, evidence-driven benchmarks, and safeguards that scale from laboratory prototypes
-              to operational deployments.
+              Sentinel Gradient LLC evaluates, builds, and hardens machine learning systems with transparent methodologies,
+              evidence-driven benchmarks, and safeguards that scale from laboratory prototypes to operational deployments.
+              Explore our{" "}
+              <Link href="/capabilities" className="underline decoration-sg-light-azure hover:text-off-white">
+                AI assurance expertise
+              </Link>{" "}
+              or review our{" "}
+              <Link
+                href="/documents/sentinel-gradient-capability-statement.pdf"
+                className="underline decoration-sg-light-azure hover:text-off-white"
+              >
+                capability statement
+              </Link>{" "}
+              before engaging on{" "}
+              <Link href="/contracts" className="underline decoration-sg-light-azure hover:text-off-white">
+                SBIR/STTR collaborations
+              </Link>
+              .
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <ButtonLink href="/capabilities" className="reveal-up reveal-delay-1">
+              <ButtonLink
+                href="/capabilities"
+                className="reveal-up reveal-delay-1"
+                eventName="nav_internal_click"
+                eventParams={{ destination: "capabilities", location: "home_hero" }}
+              >
                 Explore Our Research
               </ButtonLink>
-              <ButtonLink href="/contact" variant="secondary" className="reveal-up reveal-delay-2">
+              <ButtonLink
+                href="/contact"
+                variant="secondary"
+                className="reveal-up reveal-delay-2"
+                eventName="nav_internal_click"
+                eventParams={{ destination: "contact", location: "home_hero" }}
+              >
                 Contact for Collaboration
               </ButtonLink>
             </div>
@@ -109,6 +150,26 @@ export default function Home() {
             </Card>
           ))}
         </section>
+
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Sentinel Gradient LLC",
+              url: "https://sentinelgradient.com",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "VA",
+                addressCountry: "US",
+              },
+              naics: ["541511", "541715", "541512"],
+            }),
+          }}
+        />
 
         <Footer />
       </main>

@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input, Textarea } from "@/components/ui/input";
-
+import { buildMetadata } from "@/lib/seo";
 
 const naicsAndPscCodes = [
   { code: "NAICS 541511", description: "Custom Computer Programming Services" },
@@ -21,6 +22,17 @@ const researchHighlights = [
   "Constructed model governance packages for biomedical anomaly-detection projects.",
   "Delivered SBIR-ready transition plans aligning prototype maturity with acquisition gates.",
 ];
+
+export const revalidate = 86400;
+
+export async function generateMetadata() {
+  return buildMetadata({
+    route: "/contracts",
+    title: "Contracts & SBIR/STTR AI Partner — Sentinel Gradient",
+    description:
+      "Partner with Sentinel Gradient LLC for SBIR/STTR, OTA, and defense AI assurance contracts featuring model governance, autonomy assurance, and interpretable ML evaluation expertise.",
+  });
+}
 
 export default function ContractsPage() {
   return (
@@ -41,7 +53,11 @@ export default function ContractsPage() {
             <p className="text-lg leading-relaxed text-gray-azure">
               Sentinel Gradient LLC aligns SBIR, STTR, and OTA engagements with transparent milestones, audit-ready
               documentation, and engineering rigor that withstands programmatic scrutiny. Our teams structure every statement of
-              work to preserve traceability from prototype experimentation to field deployment.
+              work to preserve traceability from prototype experimentation to field deployment while coordinating closely with{" "}
+              <Link href="/contact" className="underline decoration-sg-light-azure hover:text-off-white">
+                contracting officers and acquisition leads
+              </Link>
+              .
             </p>
           </div>
           <Card className="reveal-up reveal-delay-1 max-w-md text-sm text-gray-azure">
@@ -116,6 +132,8 @@ export default function ContractsPage() {
             target="_blank"
             rel="noopener noreferrer"
             download
+            eventName="capability_pdf_download"
+            eventParams={{ source: "contracts_page" }}
           >
             Capability Statement (PDF)
           </ButtonLink>
@@ -159,7 +177,9 @@ export default function ContractsPage() {
               />
             </label>
             <div>
-              <Button type="submit">Submit Collaboration Inquiry</Button>
+              <Button type="submit" eventName="contact_submit" eventParams={{ source: "contracts_form" }}>
+                Submit Collaboration Inquiry
+              </Button>
             </div>
           </form>
         </Card>

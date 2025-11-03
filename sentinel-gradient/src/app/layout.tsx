@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import {
   Montserrat,
   Playfair_Display,
@@ -20,9 +21,22 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Sentinel Gradient LLC",
+  metadataBase: new URL("https://sentinelgradient.com"),
+  title: {
+    default: "Sentinel Gradient — AI Assurance and Interpretability Research",
+    template: "%s | Sentinel Gradient",
+  },
   description:
-    "Sentinel Gradient LLC advances machine intelligence through rigorous, research-driven engineering.",
+    "Sentinel Gradient LLC delivers interpretable ML, LLM evaluation, and autonomy assurance for defense and public sector programs.",
+  openGraph: {
+    type: "website",
+    siteName: "Sentinel Gradient",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@SentinelGradient",
+  },
 };
 
 export default function RootLayout({
@@ -42,6 +56,22 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXX', { page_path: window.location.pathname });
+            `,
+          }}
+        />
       </body>
     </html>
   );

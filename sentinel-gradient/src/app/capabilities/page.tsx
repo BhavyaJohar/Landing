@@ -1,7 +1,10 @@
+import Link from "next/link";
+import Script from "next/script";
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { buildMetadata } from "@/lib/seo";
 
 const capabilityAreas = [
   {
@@ -48,6 +51,17 @@ const readinessSignals = [
   "Data governance and documentation packages accelerate partner onboarding and compliance checks.",
 ];
 
+export const revalidate = 86400;
+
+export async function generateMetadata() {
+  return buildMetadata({
+    route: "/capabilities",
+    title: "Our Expertise — AI Safety, LLM Evaluation, Autonomy & ML Systems",
+    description:
+      "Explore Sentinel Gradient’s AI assurance, AI safety and interpretability, applied LLM engineering, autonomy assurance, and data-centric ML capabilities for defense and public sector programs.",
+  });
+}
+
 export default function CapabilitiesPage() {
   return (
     <div className="relative overflow-hidden">
@@ -57,6 +71,22 @@ export default function CapabilitiesPage() {
         className="relative mx-auto flex min-h-screen w-full max-w-[1200px] flex-col px-6 py-24 sm:px-10 lg:px-16"
       >
         <Header />
+
+        <Script
+          id="capabilities-breadcrumbs"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://sentinelgradient.com/" },
+                { "@type": "ListItem", position: 2, name: "Our Expertise", item: "https://sentinelgradient.com/capabilities" },
+              ],
+            }),
+          }}
+        />
 
         {/* Hero */}
         <section className="mt-16 flex flex-col gap-10 md:mt-20 md:flex-row md:items-center md:justify-between">
@@ -68,7 +98,18 @@ export default function CapabilitiesPage() {
             <p className="text-lg leading-relaxed text-gray-azure">
               Sentinel Gradient LLC structures every engagement around verifiable research outcomes. Our teams align analytical
               depth, engineering rigor, and compliance readiness so collaborators can rely on transparent performance across
-              autonomous, safety-critical, and data-intensive systems.
+              autonomous, safety-critical, and data-intensive systems. Download our{" "}
+              <Link
+                href="/documents/sentinel-gradient-capability-statement.pdf"
+                className="underline decoration-sg-light-azure hover:text-off-white"
+              >
+                capability statement
+              </Link>{" "}
+              or connect with our{" "}
+              <Link href="/contracts" className="underline decoration-sg-light-azure hover:text-off-white">
+                SBIR/STTR contracting team
+              </Link>{" "}
+              for tailored teaming discussions.
             </p>
           </div>
 
@@ -149,7 +190,13 @@ export default function CapabilitiesPage() {
             ))}
           </ul>
           <div>
-            <ButtonLink href="/contact">Learn More / Contact Us</ButtonLink>
+            <ButtonLink
+              href="/contact"
+              eventName="nav_internal_click"
+              eventParams={{ destination: "contact", location: "capabilities_readiness" }}
+            >
+              Learn More / Contact Us
+            </ButtonLink>
           </div>
         </Card>
 

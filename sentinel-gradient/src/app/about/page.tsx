@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { buildMetadata } from "@/lib/seo";
 
 const approachPillars = [
   "Construct evidence-driven evaluation plans that quantify model reliability before deployment.",
@@ -26,6 +28,17 @@ const teamProfiles = [
   },
 ];
 
+export const revalidate = 86400;
+
+export async function generateMetadata() {
+  return buildMetadata({
+    route: "/about",
+    title: "About Sentinel Gradient — Virginia AI Assurance & Interpretability Research",
+    description:
+      "Learn how Sentinel Gradient LLC advances AI safety, interpretable machine learning, and SBIR-ready autonomy research for defense, aerospace, and public sector partners.",
+  });
+}
+
 export default function AboutPage() {
   return (
     <div className="relative overflow-hidden">
@@ -45,7 +58,7 @@ export default function AboutPage() {
             <p className="text-lg leading-relaxed text-gray-azure">
               We build mission-aligned machine intelligence that stands up to scrutiny. Our teams combine empirical rigor
               with operational context to design, validate, and deliver AI capabilities that perform reliably in contested
-              environments.
+              environments while documenting model governance for regulators and acquisition teams.
             </p>
           </div>
           <div className="flex items-center gap-4 md:gap-6">
@@ -55,10 +68,17 @@ export default function AboutPage() {
               download
               target="_blank"
               rel="noopener noreferrer"
+              eventName="capability_pdf_download"
+              eventParams={{ source: "about_page" }}
             >
               Capability Statement
             </ButtonLink>
-            <ButtonLink href="/contact" className="reveal-up reveal-delay-1">
+            <ButtonLink
+              href="/contact"
+              className="reveal-up reveal-delay-1"
+              eventName="nav_internal_click"
+              eventParams={{ destination: "contact", location: "about_hero" }}
+            >
               Connect With Us
             </ButtonLink>
           </div>
@@ -70,7 +90,12 @@ export default function AboutPage() {
             <p className="text-base leading-relaxed text-gray-azure">
               Sentinel Gradient LLC exists to strengthen decision-making systems where precision and accountability are
               non-negotiable. Our research portfolio spans AI assurance, autonomy calibration, and model governance for
-              federal and commercial partners who demand auditable performance.
+              federal and commercial partners who demand auditable performance and SBIR/STTR-ready deliverables. Our contracting
+              practice integrates{" "}
+              <Link href="/contracts" className="underline decoration-sg-light-azure hover:text-off-white">
+                SBIR/STTR collaboration frameworks
+              </Link>{" "}
+              so teaming partners can accelerate evaluations.
             </p>
             <p className="text-base leading-relaxed text-gray-azure">
               We operate as a research-native firm with contracting fluency, integrating human factors, model

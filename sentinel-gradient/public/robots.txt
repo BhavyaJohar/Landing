@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sentinelgradient.com
+
+# Sitemaps
+Sitemap: https://sentinelgradient.com/sitemap.xml

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 import logoMark from "@/app/Logo.svg";
 import { cn } from "@/lib/cn";
+import { trackEvent } from "@/lib/analytics";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -84,6 +85,11 @@ export function Header({ variant = "default" }: HeaderProps) {
                   linkBase,
                   isActive ? "text-off-white underline decoration-[#1F97C1] decoration-2 underline-offset-8" : "text-gray-azure-muted hover:text-off-white",
                 )}
+                onClick={() => {
+                  if (item.href === "/contact") {
+                    trackEvent("nav_contact_click", { location: "desktop_nav" });
+                  }
+                }}
                 aria-current={isActive ? "page" : undefined}
               >
                 {item.label}
@@ -105,12 +111,17 @@ export function Header({ variant = "default" }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    linkBase,
-                    isActive
-                      ? "text-off-white underline decoration-[#1F97C1] decoration-2 underline-offset-8"
-                      : "text-gray-azure hover:text-off-white",
+                  linkBase,
+                  isActive
+                    ? "text-off-white underline decoration-[#1F97C1] decoration-2 underline-offset-8"
+                    : "text-gray-azure hover:text-off-white",
                   )}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    if (item.href === "/contact") {
+                      trackEvent("nav_contact_click", { location: "mobile_nav" });
+                    }
+                  }}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {item.label}
