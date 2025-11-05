@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://sentinelgradient.com
+Host: https://www.sentinelgradient.com
 
 # Sitemaps
-Sitemap: https://sentinelgradient.com/sitemap.xml
+Sitemap: https://www.sentinelgradient.com/sitemap.xml

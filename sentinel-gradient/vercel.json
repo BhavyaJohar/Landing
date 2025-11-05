@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "sentinelgradient.com"
+        }
+      ],
+      "destination": "https://www.sentinelgradient.com/:path*",
+      "permanent": true
+    }
+  ]
+}
